@@ -25,6 +25,15 @@ public class DeckTest {
         assertEquals(52, deck.checkAmount());
     }
 
+    @Test
+    public void deckCanBeShuffled(){
+        deck.makeDeckOfCards(suits, ranks);
+        System.out.println(this.deck.getDeck());
+//        assertEquals(this.deck, deck.shuffleDeck());
+        deck.shuffleDeck();
+        System.out.println(this.deck.getDeck());
+    }
+
 
 
 }
