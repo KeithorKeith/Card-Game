@@ -29,9 +29,18 @@ public class DeckTest {
     public void deckCanBeShuffled(){
         deck.makeDeckOfCards(suits, ranks);
         System.out.println(this.deck.getDeck());
-//        assertEquals(this.deck, deck.shuffleDeck());
         deck.shuffleDeck();
         System.out.println(this.deck.getDeck());
+//      assertEquals(this.deck, deck.shuffleDeck());
+    }
+
+    @Test
+    public void deckCanBeDealtToHand(){
+        deck.makeDeckOfCards(suits, ranks);
+        deck.shuffleDeck();
+        deck.dealCard();
+        assertEquals(51, deck.checkAmount());
+        assertEquals(1, deck.checkHand());
     }
 
 
