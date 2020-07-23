@@ -37,10 +37,28 @@ public class Deck {
         return this.deckOfCards;
     }
 
-    public void dealCard(){
+    public void dealCard(Player player){
         PlayingCard card;
         card = this.deckOfCards.remove(0);
-        this.hand.add(card);
+        player.takeCard(card);
+    }
+
+    public Player compareCard(Player player1, Player player2) {
+        int player1RankCount;
+        int player2RankCount;
+
+        player1RankCount = player1.countRank();
+        player2RankCount = player2.countRank();
+
+        if (player1RankCount > player2RankCount) {
+            return player1;
+        }
+        else if (player1RankCount ==  player2RankCount) {
+
+        }
+        else {
+            return player2;
+        }
     }
 
 

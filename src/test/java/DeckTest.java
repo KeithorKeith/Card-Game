@@ -42,7 +42,4 @@ public class DeckTest {
         assertEquals(51, deck.checkAmount());
         assertEquals(1, deck.checkHand());
     }
-
-
-
 }
