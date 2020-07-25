@@ -25,10 +25,6 @@ public class Deck {
         return this.deckOfCards.size();
     }
 
-    public int checkHand(){
-        return this.hand.size();
-    }
-
     public void shuffleDeck(){
         Collections.shuffle(this.deckOfCards);
     }
@@ -59,6 +55,7 @@ public class Deck {
         else {
             return player2;
         }
+        return null;
     }
 
 

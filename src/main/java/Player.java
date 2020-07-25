@@ -12,8 +12,12 @@ public class Player {
         this.hand.add(card);
     }
 
+    public int checkHand(){
+        return this.hand.size();
+    }
+
     public int countRank() {
-        int total;
+        int total = 0;
         for (PlayingCard card : this.hand) {
             total += card.getRank().getRankType();
         }

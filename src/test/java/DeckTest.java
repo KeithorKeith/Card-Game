@@ -8,10 +8,14 @@ public class DeckTest {
     private Deck deck;
     private SuitType suits;
     private RankType ranks;
+    private Player dealer;
+    private Player player2;
 
     @Before
     public void before(){
         this.deck = new Deck();
+        this.dealer = new Player();
+        this.player2 = new Player();
     }
 
     @Test
@@ -31,15 +35,24 @@ public class DeckTest {
         System.out.println(this.deck.getDeck());
         deck.shuffleDeck();
         System.out.println(this.deck.getDeck());
-//      assertEquals(this.deck, deck.shuffleDeck());
     }
 
     @Test
     public void deckCanBeDealtToHand(){
         deck.makeDeckOfCards(suits, ranks);
         deck.shuffleDeck();
-        deck.dealCard();
+        deck.dealCard(dealer);
         assertEquals(51, deck.checkAmount());
-        assertEquals(1, deck.checkHand());
+        assertEquals(1, dealer.checkHand());
+    }
+
+    @Test
+    public void canHaveWinner(){
+        deck.makeDeckOfCards(suits, ranks);
+        deck.dealCard(dealer);
+        deck.dealCard(player2);
+        deck.dealCard(dealer);
+        deck.dealCard(player2);
+        assertEquals(player2, deck.compareCard(dealer, player2));
     }
 }
